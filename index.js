@@ -112,6 +112,9 @@ EPSSecurity.prototype = {
 
                                                                             value = CurrentTemperature.temperature
                                                                             EpochDate = new Date(CurrentTemperature.date);
+                                                                            strDate = EpochDate.toLocaleString('fr-FR', {timeZone: 'UTC'});
+
+                                                                            this.log(`Resultat Temperature for: (${this.fieldName} : ${CurrentTemperature.temperature} (${strDate}))`);
 
                                                                             if (!error) {
                                                                                 resolve(value);
