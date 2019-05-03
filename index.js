@@ -121,25 +121,25 @@ EPSSecurity.prototype = {
                                                                             this.waiting_response = false
 
                                                                         } catch (parseErr) {
-                                                                            this.log('Error processing received information: ' + parseErr.message);
+                                                                            this.log('Error processing received information (GetTemperatures): ' + parseErr.message);
                                                                             error = parseErr;
                                                                         }
                                                                     }
                                                                 }.bind(this));
                                                         } catch (parseErr) {
-                                                            this.log('Error processing received information: ' + parseErr.message);
+                                                            this.log('Error processing received information (Connect): ' + parseErr.message);
                                                             error = parseErr;
                                                         }
                                                     }
                                                 }.bind(this));
                                         } catch (parseErr) {
-                                            this.log('Error processing received information: ' + parseErr.message);
+                                            this.log('Error processing received information (GetToken): ' + parseErr.message);
                                             error = parseErr;
                                         }
                                     }
                                 }.bind(this));
                         } catch (parseErr) {
-                            this.log('Error processing received information: ' + parseErr.message);
+                            this.log('Error processing received information (Check): ' + parseErr.message);
                             error = parseErr;
                         }
                     };
