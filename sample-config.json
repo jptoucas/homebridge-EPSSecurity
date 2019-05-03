@@ -10,9 +10,10 @@
     "accessories": [
         {
             "accessory": "EPSSecurity",
-            "name": "Cuisine",
-            "field_name": "CUISINE",
-            "authorization": "Basic XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+            "name": "My Room",
+            "field_name": "ROOM",
+            "OAuthUser": "****************************",
+            "OAuthPwd": "****************************",
             "login": "NNNNNNNN",
             "password": "XXXXXXXXX"
         }

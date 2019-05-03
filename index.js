@@ -19,9 +19,12 @@ function EPSSecurity(log, config) {
     this.log = log;
     this.url = "https://www.eps-wap.fr/smartphone/Production/4.0/?/";
     this.name = config["name"];
-    this.authorization = config["authorization"];
     this.login = config["login"];
     this.password = config["password"];
+    this.OAuthUser = config["OAuthUser"];
+    this.OAuthPwd = config["OAuthPwd"];
+    this.authorization = "Basic " + new Buffer(this.OAuthUser + ":" + this.OAuthPwd).toString("base64");
+    this.log(`Auth: (${this.authorization})`);
     this.manufacturer = "EPS";
     this.model = "Birdie";
     this.SerialNumber = "1.0"
@@ -111,7 +114,7 @@ EPSSecurity.prototype = {
 
                                                                             value = CurrentTemperature.temperature
                                                                             EpochDate = new Date(CurrentTemperature.date);
-                                                                            strDate = EpochDate.toLocaleString('fr-FR', {timeZone: 'UTC'});
+                                                                            strDate = EpochDate.toLocaleString('fr-FR', { timeZone: 'UTC' });
 
                                                                             this.log(`Resultat Temperature for: (${this.fieldName} : ${CurrentTemperature.temperature} (${strDate}))`);
 
