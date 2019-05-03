@@ -7,7 +7,7 @@ var superagentCache = require("superagent-cache-plugin")(cache);
 const DEF_MIN_TEMPERATURE = -100,
     DEF_MAX_TEMPERATURE = 100,
     DEF_TIMEOUT = 5000,
-    DEF_INTERVAL = 120000; //120s
+    DEF_INTERVAL = 3600000; //3600s
 
 module.exports = function (homebridge) {
     Service = homebridge.hap.Service;
