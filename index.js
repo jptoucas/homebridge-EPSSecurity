@@ -4,7 +4,6 @@ var cache = new cacheModule({ storage: "session", defaultExpiration: 60 });
 var request = require("superagent");
 var superagentCache = require("superagent-cache-plugin")(cache);
 
-
 const DEF_MIN_TEMPERATURE = -100,
     DEF_MAX_TEMPERATURE = 100,
     DEF_TIMEOUT = 5000,
