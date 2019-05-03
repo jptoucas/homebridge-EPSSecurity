@@ -42,22 +42,16 @@ EPSSecurity.prototype = {
     updateState: function () {
         //Ensure previous call finished
         if (this.waiting_response) {
-            this.log('Avoid updateState as previous response does not arrived yet');
+            //this.log('Avoid updateState as previous response does not arrived yet');
             return;
         }
         this.waiting_response = true;
         this.last_value = new Promise((resolve, reject) => {
 
-        var value = null;
+            var value = null;
 
             // First request
             request("GET", this.url + "check/10680661")
-                .set("Accept", "*/*")
-                .set("Accept-Language", "fr-FR;q=1.0, en-FR;q=0.9")
-                .set("Host", "www.eps-wap.fr")
-                .set("Connection", "keep-alive")
-                .set("Accept-encoding", "gzip;q=1.0, compress;q=0.5")
-                .set("User-Agent", "Espace EPS/4.6.2 (com.eps.EPS; build:2875; iOS 12.2.0) Alamofire/4.7.3")
                 .use(superagentCache)
                 .expiration(this.cacheExpiration)
                 .end(function (error, res, key) {
@@ -70,15 +64,7 @@ EPSSecurity.prototype = {
 
                             // Second request : Get Session token
                             request("POST", this.url + "token")
-                                .set("Accept", "*/*")
-                                .set("Accept-Language", "fr-FR;q=1.0, en-FR;q=0.9")
-                                .set("Host", "www.eps-wap.fr")
-                                .set("Connection", "keep-alive")
-                                .set("Accept-Encoding", "gzip;q=1.0, compress;q=0.5")
-                                .set("User-Agent", "Espace EPS/4.6.2 (com.eps.EPS; build:2875; iOS 12.2.0) Alamofire/4.7.3")
                                 .set("Content-Type", "application/x-www-form-urlencoded")
-                                .set("Content-Length", "46")
-                                .set("Accept-encoding", "gzip;q=1.0, compress;q=0.5")
                                 .set("Authorization", this.authorization)
                                 .send({ grant_type: "client_credentials", scope: "PRODUCTION" })
                                 .use(superagentCache)
@@ -94,15 +80,7 @@ EPSSecurity.prototype = {
                                             //this.log(`Resultat ResultGetToken: (${this.ResultGetToken})`);
 
                                             request("POST", this.url + "connect")
-                                                .set("Accept", "*/*")
-                                                .set("Accept-Encoding", "gzip;q=1.0, compress;q=0.5")
-                                                .set("Accept-Language", "fr-FR;q=1.0, en-FR;q=0.9")
-                                                .set("Host", "www.eps-wap.fr")
                                                 .set("Content-Type", "application/json")
-                                                .set("Content-Length", "213")
-                                                .set("Connection", "keep-alive")
-                                                .set("Accept-encoding", "gzip;q=1.0, compress;q=0.5")
-                                                .set("User-Agent", "Espace EPS/4.6.2 (com.eps.EPS; build:2875; iOS 12.2.0) Alamofire/4.7.3")
                                                 .set("Authorization", "Bearer " + this.ResultGetToken)
                                                 .send({ "application": "SMARTPHONE", "login": this.login, "pwd": this.password, "typeDevice": "SMARTPHONE", "originSession": "EPS", "phoneType": "notAvailable", "codeLanguage": "fr_FR", "version": "4.6.2", "timestamp": "0", "system": "IOS12.2" })
                                                 .use(superagentCache)
@@ -117,13 +95,7 @@ EPSSecurity.prototype = {
 
                                                             // Fourth request Get Temperature values
                                                             request("GET", this.url + "temperature/followup/last/" + this.ResultIdSession)
-                                                                .set("Host", "www.eps-wap.fr")
-                                                                .set("Connection", "keep-alive")
-                                                                .set("Accept", "*/*")
-                                                                .set("User-Agent", "Espace EPS/4.6.2 (com.eps.EPS; build:2875; iOS 12.2.0) Alamofire/4.7.3")
-                                                                .set("Accept-Language", "fr-FR;q=1.0, en-FR;q=0.9")
                                                                 .set("Authorization", "Bearer " + this.ResultGetToken)
-                                                                .set("Accept-Encoding", "gzip;q=1.0, compress;q=0.5")
                                                                 .use(superagentCache)
                                                                 .expiration(this.cacheExpiration)
                                                                 .end(function (error, res, key) {
@@ -184,7 +156,7 @@ EPSSecurity.prototype = {
     },
 
     getState: function (callback) {
-        this.log('Call to getState: waiting_response is "' + this.waiting_response + '"');
+        //this.log('Call to getState: waiting_response is "' + this.waiting_response + '"');
         this.updateState(); //This sets the promise in last_value
         this.last_value.then((value) => {
             callback(null, value);
