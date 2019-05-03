@@ -111,7 +111,7 @@ EPSSecurity.prototype = {
                                                                             );
 
                                                                             value = CurrentTemperature.temperature
-                                                                            this.log(`Resultat Temperature for: (${this.fieldName} : ${CurrentTemperature.temperature})`);
+                                                                            EpochDate = new Date(CurrentTemperature.date);
 
                                                                             if (!error) {
                                                                                 resolve(value);
