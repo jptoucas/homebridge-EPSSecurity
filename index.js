@@ -24,7 +24,6 @@ function EPSSecurity(log, config) {
     this.OAuthUser = config["OAuthUser"];
     this.OAuthPwd = config["OAuthPwd"];
     this.authorization = "Basic " + new Buffer(this.OAuthUser + ":" + this.OAuthPwd).toString("base64");
-    this.log(`Auth: (${this.authorization})`);
     this.manufacturer = "EPS";
     this.model = "Birdie";
     this.SerialNumber = "1.0"
