@@ -18,7 +18,8 @@ Sample configuration:
       "accessory": "EPSSecurity",
       "name": "Cuisine",
       "field_name": "CUISINE",
-      "authorization": "Basic XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "OAuthUser": "xxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "OAuthPwd": "xxxxxxxxxxxxxxxxxxxxxxxxxxx",
       "login": "NNNNNNNN",
       "password": "XXXXXXXXX"
     }
