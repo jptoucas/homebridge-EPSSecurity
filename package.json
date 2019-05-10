@@ -10,13 +10,20 @@
     "type": "git",
     "url": "git+https://github.com/jptoucas/homebridge-EPSSecurity.git"
   },
+  "keywords": [
+    "homebridge-plugin",
+    "EPS"
+  ],
+  "engines": {
+    "node": ">=8.0.0",
+    "homebridge": ">=0.4.0"
+  },
   "author": "jptoucas",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jptoucas/homebridge-EPSSecurity/issues"
   },
-  "homepage": "https://github.com/jptoucas/homebridge-EPSSecurity#readme"
-  ,
+  "homepage": "https://github.com/jptoucas/homebridge-EPSSecurity#readme",
   "dependencies": {
     "cache-service-cache-module": "^1.0.0",
     "superagent": "^3.3.1",
