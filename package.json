@@ -1,22 +1,22 @@
 {
   "name": "homebridge-epssecurity",
-  "version": "0.0.0.1",
+  "version": "1.0.0",
   "description": "Plugin for EPSSecurity",
-  "license": "ISC",
-  "keywords": [
-    "homebridge-plugin"
-  ],
-  "engines": {
-    "node": ">=0.12.0",
-    "homebridge": ">=0.2.0"
-  },
-  "author": {
-    "name": "jptoucas"
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jptoucas/homebridge-EPSSecurity.git"
+    "url": "git+https://github.com/jptoucas/homebridge-EPSSecurity.git"
   },
+  "author": "jptoucas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jptoucas/homebridge-EPSSecurity/issues"
+  },
+  "homepage": "https://github.com/jptoucas/homebridge-EPSSecurity#readme"
+  ,
   "dependencies": {
     "cache-service-cache-module": "^1.0.0",
     "superagent": "^3.3.1",
